@@ -188,6 +188,23 @@ export default function Player({ spotifyToken, onConnectSpotify, onDisconnectSpo
 
   const progressPct = duration ? Math.min(100, (position / duration) * 100) : 0
 
+  const [closed, setClosed] = useState(false)
+  if (closed) return (
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: "'Press Start 2P', monospace",
+      fontSize: '10px',
+      color: '#ff80b5',
+      letterSpacing: '2px'
+
+    }}>
+      GOODBYE ♪
+    </div>
+  )
+
   return (
     <div className={styles.wrapper}>
       <audio ref={audioRef} />
@@ -197,7 +214,7 @@ export default function Player({ spotifyToken, onConnectSpotify, onDisconnectSpo
         <div className={styles.titleBar}>
           <div style={{ width: 20 }} />
           <span className={styles.titleText}>TAPE PLAYER</span>
-          <div className={styles.closeBtn}>✕</div>
+          <div className={styles.closeBtn} onClick={() => setClosed(true)}>✕</div>
         </div>
 
         <div className={styles.body}>

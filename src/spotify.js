@@ -1,5 +1,5 @@
-const CLIENT_ID = '13694ce387c94cc090fe093f61a41ac3'
-const REDIRECT_URI = 'https://tape-player.netlify.app/'
+const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID
+const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI
 const SCOPES = [
   'streaming',
   'user-read-email',

@@ -195,12 +195,8 @@ export default function Player({ spotifyToken, onConnectSpotify, onDisconnectSpo
       <div className={styles.window}>
         {/* Title bar */}
         <div className={styles.titleBar}>
-          <div className={styles.titleDots}>
-            <span className={styles.dot} style={{ background: '#ff5f57' }} />
-            <span className={styles.dot} style={{ background: '#ffbd2e' }} />
-            <span className={styles.dot} style={{ background: '#28c840' }} />
-          </div>
-          <span className={styles.titleText}>TAPE PLAYER v1.0</span>
+          <div style={{ width: 20 }} />
+          <span className={styles.titleText}>TAPE PLAYER</span>
           <div className={styles.closeBtn}>✕</div>
         </div>
 

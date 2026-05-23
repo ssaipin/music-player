@@ -1,0 +1,212 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px 40px;
+  gap: 16px;
+}
+
+.window {
+  width: 100%;
+  max-width: 480px;
+  border: 4px solid var(--purple-dark);
+  box-shadow: 6px 6px 0 var(--purple-dark);
+  background: var(--window-bg);
+}
+
+.titleBar {
+  background: var(--pink-hot);
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--purple-dark);
+}
+.titleDots { display: flex; gap: 5px; align-items: center; }
+.dot { width: 12px; height: 12px; border: 2px solid var(--purple-dark); display: inline-block; }
+.titleText { font-size: 8px; color: white; text-shadow: 1px 1px 0 var(--purple-dark); letter-spacing: 1px; }
+.closeBtn {
+  width: 20px; height: 20px;
+  background: var(--red-close);
+  border: 2px solid var(--purple-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; color: white; cursor: pointer;
+}
+
+.body { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+
+/* Spotify */
+.connectBtn {
+  width: 100%;
+  background: #1db954;
+  border: 3px solid var(--purple-dark);
+  box-shadow: 3px 3px 0 var(--purple-dark);
+  color: white; font-size: 7px; padding: 10px;
+  letter-spacing: 1px; text-shadow: 1px 1px 0 #0a5c2a;
+  transition: transform 0.1s, box-shadow 0.1s; cursor: pointer;
+}
+.connectBtn:hover { transform: translate(1px,1px); box-shadow: 2px 2px 0 var(--purple-dark); }
+.connectBtn:active { transform: translate(3px,3px); box-shadow: none; }
+
+.connectedRow {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #d4f5de; border: 2px solid #1db954; padding: 7px 10px;
+}
+.connectedBadge { font-size: 7px; color: #0a5c2a; letter-spacing: 1px; }
+.disconnectBtn {
+  background: transparent; border: 2px solid #1db954; color: #0a5c2a;
+  font-size: 6px; padding: 4px 8px; cursor: pointer;
+  font-family: 'Press Start 2P', monospace; letter-spacing: 0.5px;
+}
+.disconnectBtn:hover { background: #1db95422; }
+
+/* Search */
+.searchRow { display: flex; gap: 6px; }
+.searchInput {
+  flex: 1; background: white;
+  border: 3px solid var(--purple-dark);
+  box-shadow: 2px 2px 0 var(--purple-dark);
+  color: var(--text-dark); font-size: 7px; padding: 10px; outline: none;
+}
+.searchInput::placeholder { color: var(--pink-mid); opacity: 0.7; }
+.searchBtn {
+  background: var(--pink-hot); border: 3px solid var(--purple-dark);
+  box-shadow: 3px 3px 0 var(--purple-dark); color: white; font-size: 7px;
+  padding: 10px 12px; letter-spacing: 1px; white-space: nowrap;
+  text-shadow: 1px 1px 0 var(--purple-dark);
+  transition: transform 0.1s, box-shadow 0.1s; cursor: pointer;
+}
+.searchBtn:hover { transform: translate(1px,1px); box-shadow: 2px 2px 0 var(--purple-dark); }
+.searchBtn:active { transform: translate(3px,3px); box-shadow: none; }
+
+/* ✨ Tape with label overlay */
+.tapeContainer {
+  position: relative;
+  border: 3px solid var(--purple-dark);
+  box-shadow: 4px 4px 0 var(--purple-dark);
+  overflow: hidden;
+  background: var(--pink-light);
+  line-height: 0;
+}
+
+.tapeImg {
+  width: 100%;
+  display: block;
+  image-rendering: pixelated;
+}
+
+/* Overlay sits inside the tape's top label rectangle
+   Tape image ratio is ~1400x900, label box is roughly
+   top 14%–38% height, left 14%–86% width */
+.tapeLabel {
+  position: absolute;
+  top: 7%;
+  left: 14%;
+  right: 14%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+  pointer-events: none;
+}
+
+.tapeSongName {
+  font-family: 'VT323', monospace;
+  font-size: clamp(14px, 3.5vw, 22px);
+  color: var(--purple-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.tapeArtistName {
+  font-family: 'VT323', monospace;
+  font-size: clamp(12px, 2.8vw, 18px);
+  color: var(--pink-deep);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.previewTag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 5px;
+  color: var(--pink-hot);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* Controls */
+.controls { display: flex; flex-direction: column; gap: 6px; }
+
+.progressBar {
+  width: 100%; height: 10px;
+  background: white; border: 2px solid var(--purple-dark);
+  cursor: pointer; position: relative;
+  box-shadow: 2px 2px 0 var(--purple-dark);
+}
+.progressFill { height: 100%; background: var(--pink-hot); transition: width 0.3s linear; }
+.progressThumb {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 10px; height: 14px;
+  background: var(--green-btn); border: 2px solid var(--purple-dark);
+  pointer-events: none;
+}
+.timeRow { display: flex; justify-content: space-between; font-size: 6px; color: var(--pink-deep); }
+
+.btnRow { display: flex; gap: 6px; align-items: center; }
+
+.ctrlBtn {
+  background: var(--green-btn); border: 3px solid var(--purple-dark);
+  box-shadow: 3px 3px 0 var(--purple-dark); color: var(--purple-dark);
+  font-size: 9px; padding: 6px 10px; min-width: 36px; text-align: center;
+  transition: transform 0.1s, box-shadow 0.1s; cursor: pointer;
+}
+.ctrlBtn:hover { transform: translate(1px,1px); box-shadow: 2px 2px 0 var(--purple-dark); }
+.ctrlBtn:active { transform: translate(3px,3px); box-shadow: none; }
+.playBtn { padding: 8px 14px; font-size: 12px; }
+.playing { background: var(--pink-hot); color: white; text-shadow: 1px 1px 0 var(--purple-dark); }
+
+.volumeRow { display: flex; align-items: center; gap: 6px; flex: 1; }
+.volLabel { font-size: 6px; color: var(--pink-deep); min-width: 24px; }
+.volumeSlider { flex: 1; height: 6px; accent-color: var(--pink-hot); cursor: pointer; }
+
+/* Status */
+.statusBar {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 6px; color: var(--pink-deep); letter-spacing: 1px;
+  border-top: 2px solid var(--pink-light); padding-top: 8px;
+}
+.statusDot { width: 8px; height: 8px; border: 1px solid var(--purple-dark); flex-shrink: 0; }
+
+/* Results */
+.resultsWindow {
+  width: 100%; max-width: 480px;
+  border: 4px solid var(--purple-dark);
+  box-shadow: 6px 6px 0 var(--purple-dark);
+  background: var(--window-bg);
+}
+.resultsList { max-height: 360px; overflow-y: auto; }
+.loadingRow { padding: 24px; text-align: center; font-size: 8px; color: var(--pink-hot); letter-spacing: 2px; }
+
+.trackRow {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border-bottom: 2px solid var(--pink-light);
+  cursor: pointer; transition: background 0.1s;
+}
+.trackRow:hover { background: var(--pink-light); }
+.activeTrack { background: var(--tape-pink); border-left: 4px solid var(--pink-hot); }
+.trackNum { font-size: 6px; color: var(--pink-mid); min-width: 18px; text-align: right; }
+.trackThumb { width: 36px; height: 36px; border: 2px solid var(--purple-dark); object-fit: cover; image-rendering: pixelated; flex-shrink: 0; }
+.trackDetails { flex: 1; min-width: 0; }
+.trackRowName { font-size: 7px; color: var(--text-dark); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 3px; }
+.trackRowArtist { font-size: 6px; color: var(--pink-deep); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.trackDur { font-size: 6px; color: var(--pink-mid); min-width: 36px; text-align: right; }

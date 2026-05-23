@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+}
+
+:root {
+  --pink-light: #ffd6e8;
+  --pink-mid: #ff80b5;
+  --pink-hot: #ff2d8f;
+  --pink-deep: #c2006b;
+  --purple-dark: #3d0030;
+  --bg: #1a0015;
+  --window-bg: #ffe4f0;
+  --tape-pink: #ffb3d4;
+  --green-btn: #4cff4c;
+  --green-dark: #1a8c1a;
+  --red-close: #ff3333;
+  --text-dark: #2a0020;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Press Start 2P', monospace;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+body {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(255,100,180,0.04) 32px),
+    repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(255,100,180,0.04) 32px);
+}
+
+button {
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  image-rendering: pixelated;
+}
+
+input {
+  font-family: 'Press Start 2P', monospace;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--purple-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pink-hot);
+  border: 2px solid var(--purple-dark);
+}

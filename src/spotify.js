@@ -104,7 +104,19 @@ export async function searchSpotify(query, token) {
     `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=20`,
     { headers: { Authorization: `Bearer ${token}` } }
   )
-  if (!res.ok) throw new Error('Spotify search failed')
+  if (res.status === 401) {
+    // Token expired — clear it so user can reconnect
+    clearToken()
+    window.location.reload()
+    return []
+  }
+  
+  if (!res.ok) {
+    const err = await res.json()
+    console.error('Spotify search error:', err)
+    throw new Error('Spotify search failed')
+  }
+  
   const data = await res.json()
   return data.tracks.items.map(t => ({
     id: t.id,

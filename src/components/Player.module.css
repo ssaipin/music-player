@@ -24,8 +24,7 @@
   justify-content: space-between;
   border-bottom: 3px solid var(--purple-dark);
 }
-.titleDots { display: flex; gap: 5px; align-items: center; }
-.dot { width: 12px; height: 12px; border: 2px solid var(--purple-dark); display: inline-block; }
+
 .titleText { font-size: 8px; color: white; text-shadow: 1px 1px 0 var(--purple-dark); letter-spacing: 1px; }
 .closeBtn {
   width: 20px; height: 20px;
@@ -109,6 +108,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+  align-items: center;
   gap: 4px;
   padding: 4px 8px;
   pointer-events: none;
@@ -121,7 +122,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.1;
+  line-height: 1;
   letter-spacing: 0.5px;
 }
 
@@ -132,7 +133,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.1;
+  line-height: 0.8;
   letter-spacing: 0.5px;
 }
 

@@ -64,10 +64,10 @@ export default function Player({ spotifyToken, onConnectSpotify, onDisconnectSpo
     return () => { if (playerRef.current) playerRef.current.disconnect() }
   }, [spotifyToken])
 
-  // Progress ticker for iTunes
+  // Progress ticker 
   useEffect(() => {
     clearInterval(progressRef.current)
-    if (isPlaying && currentTrack?.source === 'itunes') {
+    if (isPlaying) {
       progressRef.current = setInterval(() => {
         setPosition(p => {
           if (p >= duration) { setIsPlaying(false); return 0 }
@@ -76,7 +76,7 @@ export default function Player({ spotifyToken, onConnectSpotify, onDisconnectSpo
       }, 1000)
     }
     return () => clearInterval(progressRef.current)
-  }, [isPlaying, currentTrack, duration])
+  }, [isPlaying, duration])
 
   // iTunes audio events
   useEffect(() => {
